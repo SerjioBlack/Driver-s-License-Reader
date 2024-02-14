@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver's License Reader</title>
+    <link rel="shortcut icon" type="image/png" href="./img/pngwing.com.png"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+      <div class="title mt-5 mb-4 text-center">
+        <img src="./img/pngwing.com.png" width="50" height="50" alt="license">
+        <h1>Driver's License Reader</h1>
+      </div>
+        <div id="camera-feed" class="mb-4">
+            <video id="video" width="640" height="480" autoplay></video>
+            <button onclick="captureImage()" id="scan-button" class="btn btn-primary">Scan License</button>
+        </div>
+        <div id="license-info" class="d-none text-center">
+            <h2>Driver's License Information</h2>
+            <div id="license-details" class="d-none">
+                <p><strong>Full Name:</strong> <span id="fullName"></span></p>
+                <p><strong>Address:</strong> <span id="address"></span></p>
+                <p><strong>Issuance Date:</strong> <span id="issuanceDate"></span></p>
+                <p><strong>Expiration Date:</strong> <span id="expirationDate"></span></p>
+              </div>
+        </div>
+    </div>
+    <!-- <script src="https://cdn.rawgit.com/naptha/tesseract.js/master/lib/Tesseract.2015.07.26.js"></script> -->
+    <!-- <script async src="https://cdn.jsdelivr.net/npm/tesseract.js@2.3.0/dist/tesseract.js"></script> -->
+    <script src='https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js'></script>
+
+    <script src="script.js"></script>
+</body>
+</html>
