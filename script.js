@@ -1,11 +1,16 @@
 async function processImage(imageData) {
   const { data: { text } } = await Tesseract.recognize(
     imageData,
-    'eng', // language
+    'eng', // мова (можете змінити на потрібну)
     { logger: m => console.log(m) }
-  );
+  ).then(({ data: { text } }) => {
+    console.log(text);
+  }).catch(err => {
+    console.error('Error recognizing text:', err);
+  });
+  
 
-  const regex = /Full Name:(.*)\nAddress:(.*)\nIssuance Date:(.*)\nExpiration Date:(.*)/g;
+  const regex = /2:(.*)\n8:(.*)\nIssuance Date:(.*)\nISS:(.*)/g;
   const match = regex.exec(text);
 
   if (match) {
